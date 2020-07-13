@@ -3,10 +3,13 @@ package com.revature.data;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.stereotype.Repository;
+
 import com.revature.beans.Activity;
 import com.revature.beans.ImprovCharacter;
 import com.revature.beans.Setting;
 
+@Repository
 public class ImprovHardCoded 
 {
 	public static Activity[] activitiesArray;

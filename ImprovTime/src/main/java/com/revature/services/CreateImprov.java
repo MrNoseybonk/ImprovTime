@@ -1,14 +1,16 @@
 package com.revature.services;
 
 import com.revature.beans.Activity;
+import com.revature.beans.Improv;
 import com.revature.beans.ImprovCharacter;
 import com.revature.beans.Setting;
 import java.util.Random;
 
 public class CreateImprov 
 {
-	public void setUpImprov(Activity[] activities, ImprovCharacter[] characters, Setting[] settings)
+	public static Improv setUpImprov(Activity[] activities, ImprovCharacter[] characters, Setting[] settings)
 	{
+		Improv improv = new Improv();
 		Random rdm = new Random();
 		int actSize = activities.length;
 		int charSize = characters.length;
@@ -39,8 +41,14 @@ public class CreateImprov
 		selectedCharacters[0] = characters[char1];
 		selectedCharacters[1] = characters[char2];
 		
-		System.out.println("Characters = " + selectedCharacters[0].getCharacter() + " and " + 
-		selectedCharacters[1].getCharacter() + "; Activity = " + activity.getActivity() +
-		"; Setting = " + setting.getSetting());
+		improv.setActivity(activity);
+		improv.setCharacters(selectedCharacters);
+		improv.setSetting(setting);
+		
+//		System.out.println("Characters = " + selectedCharacters[0].getCharacter() + " and " + 
+//		selectedCharacters[1].getCharacter() + "; Activity = " + activity.getActivity() +
+//		"; Setting = " + setting.getSetting());
+		
+		return improv;
 	}
 }

@@ -1,8 +1,14 @@
 package com.revature.beans;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class ImprovCharacter 
 {
+	@Id
 	private int characterId;
+	@Column
 	private String character;
 	
 	public ImprovCharacter()

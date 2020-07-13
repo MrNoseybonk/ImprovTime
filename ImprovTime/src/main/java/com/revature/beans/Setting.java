@@ -1,8 +1,14 @@
 package com.revature.beans;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Setting 
 {
+	@Id
 	private int settingId;
+	@Column
 	private String setting;
 	
 	public Setting()

@@ -1,8 +1,14 @@
 package com.revature.beans;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Activity 
 {
+	@Id
 	private int activityId;
+	@Column
 	private String activity;
 	
 	public Activity()
