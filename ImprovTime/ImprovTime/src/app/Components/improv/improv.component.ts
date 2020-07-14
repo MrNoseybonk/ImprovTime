@@ -12,8 +12,8 @@ export class ImprovComponent implements OnInit {
 
   sceneData: any;
   characterData: any[];
-  activityData: any[];
-  settingData: any[];
+  activityData: any;
+  settingData: any;
 
   constructor( private improvService: ImprovService) { }
 
@@ -24,6 +24,20 @@ export class ImprovComponent implements OnInit {
         this.sceneData = resp;
 
         console.log(this.sceneData);
+
+        this.characterData = [];
+
+        this.activityData = this.sceneData.activity;
+        this.settingData = this.sceneData.setting;
+
+        for (const character of this.sceneData.characters)
+        {
+          this.characterData.push(character);
+        }
+
+        console.log(this.characterData);
+        console.log(this.activityData);
+        console.log(this.settingData);
   });
 }
 
