@@ -20,34 +20,34 @@ import com.revature.services.SettingService;
 //@CrossOrigin(origins="http://localhost:4200", allowCredentials = "true")
 @RequestMapping(path="/set")
 public class ImprovController {
-//	private ActivityService actServ;
-//	private CharacterService charServ;
-//	private SettingService setServ;
+	private ActivityService actServ;
+	private CharacterService charServ;
+	private SettingService setServ;
 	//private CreateImprov cImprov;
-	private HardCodedInfo hardCode;
+	//private HardCodedInfo hardCode;
 	
-//	@Autowired
-//	public ImprovController(ActivityService a, CharacterService c, SettingService s)
-//	{
-//		actServ = a;
-//		charServ = c;
-//		setServ = s;
-//	}
 	@Autowired
-	public ImprovController(HardCodedInfo h)
+	public ImprovController(ActivityService a, CharacterService c, SettingService s)
 	{
-		hardCode = h;
+		actServ = a;
+		charServ = c;
+		setServ = s;
 	}
+//	@Autowired
+//	public ImprovController(HardCodedInfo h)
+//	{
+//		hardCode = h;
+//	}
 	
 	@GetMapping
 	public ResponseEntity<Improv> getImprov()
 	{
-//		Activity[] activities = actServ.getActivities();
-//		ImprovCharacter[] characters = charServ.getCharacters();
-//		Setting[] settings = setServ.getSettings();
-		Activity[] activities = hardCode.getActivities();
-		ImprovCharacter[] characters = hardCode.getCharacters();
-		Setting[] settings = hardCode.getSetting();
+		Activity[] activities = actServ.getActivities();
+		ImprovCharacter[] characters = charServ.getCharacters();
+		Setting[] settings = setServ.getSettings();
+//		Activity[] activities = hardCode.getActivities();
+//		ImprovCharacter[] characters = hardCode.getCharacters();
+//		Setting[] settings = hardCode.getSetting();
 		Improv i = CreateImprov.setUpImprov(activities, characters, settings);
 		return ResponseEntity.ok(i);
 	}

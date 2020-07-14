@@ -7,24 +7,25 @@ import javax.persistence.*;
 public class ImprovCharacter 
 {
 	@Id
-	private int characterId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	@Column
 	private String character;
 	
 	public ImprovCharacter()
 	{
-		characterId = 0;
+		id = 0;
 		character = "";
 	}
 	
 	public int getCharacterId() 
 	{
-		return characterId;
+		return id;
 	}
 	
 	public void setCharacterId(int characterId)
 	{
-		this.characterId = characterId;
+		this.id = characterId;
 	}
 	
 	public String getCharacter() 
@@ -42,7 +43,7 @@ public class ImprovCharacter
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + characterId;
+		result = prime * result + id;
 		result = prime * result + ((character == null) ? 0 : character.hashCode());
 		return result;
 	}
@@ -57,7 +58,7 @@ public class ImprovCharacter
 		if (getClass() != obj.getClass())
 			return false;
 		ImprovCharacter other = (ImprovCharacter) obj;
-		if (characterId != other.characterId)
+		if (id != other.id)
 			return false;
 		if (character == null) {
 			if (other.character != null)
@@ -69,6 +70,6 @@ public class ImprovCharacter
 	@Override
 	public String toString() 
 	{
-		return "Character [characterId=" + characterId + ", character=" + character + "]";
+		return "Character [characterId=" + id + ", character=" + character + "]";
 	}
 }

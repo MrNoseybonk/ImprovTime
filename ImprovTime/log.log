@@ -1,0 +1,1 @@
+DEBUG	2020-07-14 09:28:29,714	0	com.revature.services.ActivityService	[http-nio-8080-exec-1]	[Activity [activityId=1, activity=Starting a fire], Activity [activityId=2, activity=Building a boat], Activity [activityId=3, activity=Setting up a room], Activity [activityId=4, activity=Hunting for snipes], Activity [activityId=5, activity=Training for an interview]]

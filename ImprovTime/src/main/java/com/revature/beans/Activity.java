@@ -7,24 +7,25 @@ import javax.persistence.*;
 public class Activity 
 {
 	@Id
-	private int activityId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	@Column
 	private String activity;
 	
 	public Activity()
 	{
-		activityId = 0;
+		id = 0;
 		activity = "";
 	}
 	
 	public int getActivityId()
 	{
-		return activityId;
+		return id;
 	}
 	
 	public void setActivityId(int activityId) 
 	{
-		this.activityId = activityId;
+		this.id = activityId;
 	}
 	
 	public String getActivity() 
@@ -43,7 +44,7 @@ public class Activity
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((activity == null) ? 0 : activity.hashCode());
-		result = prime * result + activityId;
+		result = prime * result + id;
 		return result;
 	}
 	
@@ -62,7 +63,7 @@ public class Activity
 				return false;
 		} else if (!activity.equals(other.activity))
 			return false;
-		if (activityId != other.activityId)
+		if (id != other.id)
 			return false;
 		return true;
 	}
@@ -70,6 +71,6 @@ public class Activity
 	@Override
 	public String toString() 
 	{
-		return "Activity [activityId=" + activityId + ", activity=" + activity + "]";
+		return "Activity [activityId=" + id + ", activity=" + activity + "]";
 	}
 }

@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -25,11 +26,10 @@ public class ActivityService {
     }
 	
 	public Activity[] getActivities(){
-		List<Activity> activitiesList;
+		List<Activity> activitiesList = new ArrayList<>();
 		activitiesList = actDao.findAll();
 		int length = activitiesList.size();
 		Activity[] activities = new Activity[length];
-		//activities =  
 		activities = activitiesList.toArray(new Activity[0]);
 		return activities;
 	}
