@@ -18,6 +18,10 @@ export class ImprovComponent implements OnInit {
   constructor( private improvService: ImprovService) { }
 
   ngOnInit(): void {
+    this.newScene();
+}
+
+  newScene(){
     this.improvSub = this.improvService
       .getImprov()
       .subscribe((resp) => {
@@ -38,7 +42,6 @@ export class ImprovComponent implements OnInit {
         /*console.log(this.characterData);
         console.log(this.activityData);
         console.log(this.settingData);*/
-  });
-}
-
+    });
+  }
 }
