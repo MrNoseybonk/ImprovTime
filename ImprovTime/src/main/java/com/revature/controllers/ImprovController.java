@@ -13,7 +13,7 @@ import com.revature.beans.Setting;
 import com.revature.services.ActivityService;
 import com.revature.services.CharacterService;
 import com.revature.services.CreateImprov;
-import com.revature.services.HardCodedInfo;
+//import com.revature.services.HardCodedInfo;
 import com.revature.services.SettingService;
 
 @RestController

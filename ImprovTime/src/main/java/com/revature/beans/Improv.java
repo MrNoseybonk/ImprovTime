@@ -3,27 +3,68 @@ package com.revature.beans;
 import java.util.Arrays;
 
 public class Improv {
-	private Activity activity;
-	private ImprovCharacter[] characters;
-	private Setting setting;
+	private String activity;
+	private String[] characters;
+	private String setting;
 	
-	public Activity getActivity() {
+	public Improv()
+	{
+		activity = "";
+		setting = "";
+		characters = null;
+	}
+	
+	public String getActivity() {
 		return activity;
 	}
-	public void setActivity(Activity activity) {
+	public void setActivity(String activity) {
 		this.activity = activity;
 	}
-	public ImprovCharacter[] getCharacters() {
+	public String[] getCharacters() {
 		return characters;
 	}
-	public void setCharacters(ImprovCharacter[] characters) {
+	public void setCharacters(String[] characters) {
 		this.characters = characters;
 	}
-	public Setting getSetting() {
+	public String getSetting() {
 		return setting;
 	}
-	public void setSetting(Setting setting) {
+	public void setSetting(String setting) {
 		this.setting = setting;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((activity == null) ? 0 : activity.hashCode());
+		result = prime * result + Arrays.hashCode(characters);
+		result = prime * result + ((setting == null) ? 0 : setting.hashCode());
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Improv other = (Improv) obj;
+		if (activity == null) {
+			if (other.activity != null)
+				return false;
+		} else if (!activity.equals(other.activity))
+			return false;
+		if (!Arrays.equals(characters, other.characters))
+			return false;
+		if (setting == null) {
+			if (other.setting != null)
+				return false;
+		} else if (!setting.equals(other.setting))
+			return false;
+		return true;
 	}
 	
 	@Override

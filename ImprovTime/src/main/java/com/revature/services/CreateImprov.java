@@ -17,7 +17,7 @@ public class CreateImprov
 		int setSize = settings.length;
 		int noRepeat = 0;
 		
-		ImprovCharacter[] selectedCharacters = new ImprovCharacter[2];
+		String[] selectedCharacters = new String[2];
 		
 		int act = rdm.nextInt(actSize);
 		int set = rdm.nextInt(setSize);
@@ -38,16 +38,12 @@ public class CreateImprov
 		
 		activity = activities[act];
 		setting = settings[set];
-		selectedCharacters[0] = characters[char1];
-		selectedCharacters[1] = characters[char2];
+		selectedCharacters[0] = characters[char1].getCharacter();
+		selectedCharacters[1] = characters[char2].getCharacter();
 		
-		improv.setActivity(activity);
+		improv.setActivity(activity.getActivity());
 		improv.setCharacters(selectedCharacters);
-		improv.setSetting(setting);
-		
-//		System.out.println("Characters = " + selectedCharacters[0].getCharacter() + " and " + 
-//		selectedCharacters[1].getCharacter() + "; Activity = " + activity.getActivity() +
-//		"; Setting = " + setting.getSetting());
+		improv.setSetting(setting.getSetting());
 		
 		return improv;
 	}
