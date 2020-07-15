@@ -17,7 +17,6 @@ import com.revature.services.CreateImprov;
 import com.revature.services.SettingService;
 
 @RestController
-//@CrossOrigin(origins="http://localhost:4200", allowCredentials = "true")
 @RequestMapping(path="/set")
 public class ImprovController {
 	private ActivityService actServ;

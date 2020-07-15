@@ -27,8 +27,6 @@ export class ImprovComponent implements OnInit {
       .subscribe((resp) => {
         this.sceneData = resp;
 
-        //console.log(this.sceneData);
-
         this.characterData = [];
 
         this.activityData = this.sceneData.activity;
@@ -38,10 +36,6 @@ export class ImprovComponent implements OnInit {
         {
           this.characterData.push(character);
         }
-
-        /*console.log(this.characterData);
-        console.log(this.activityData);
-        console.log(this.settingData);*/
     });
   }
 }
