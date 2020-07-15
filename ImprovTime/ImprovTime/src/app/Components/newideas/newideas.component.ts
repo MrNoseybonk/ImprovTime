@@ -14,6 +14,8 @@ export class NewideasComponent implements OnInit {
 
   newItem: number;
   activity: string;
+  character: string;
+  setting: string;
 
   constructor(private newideasService: NewideasService) { }
 
@@ -28,10 +30,16 @@ export class NewideasComponent implements OnInit {
   }
 
   addCharacter(){
-    console.log('New Character');
+    console.log(this.character);
+    this.characterSub = this.newideasService
+    .addCharacter(this.character)
+    .subscribe((resp) => {});
   }
 
   addSetting(){
-    console.log('New Setting');
+    console.log(this.setting);
+    this.settingSub = this.newideasService
+    .addSetting(this.setting)
+    .subscribe((resp) => {});
   }
 }

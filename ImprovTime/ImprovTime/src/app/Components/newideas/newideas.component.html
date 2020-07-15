@@ -12,12 +12,12 @@
         </div>
         <div class="character-idea">
             <label for="newcharacter">Character</label>
-            <input type="text" id="newcharacter">
+            <input type="text" id="newcharacter" [(ngModel)]="character">
             <button class="ideabutton" (click)="addCharacter()">Enter New Idea</button>
         </div>
         <div class="setting-idea">
             <label for="newsetting">Setting</label>
-            <input type="text" id="newsetting">
+            <input type="text" id="newsetting" [(ngModel)]="setting">
             <button class="ideabutton" (click)="addSetting()">Enter New Idea</button>
         </div>
     </div>
