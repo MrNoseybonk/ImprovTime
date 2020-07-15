@@ -7,18 +7,18 @@
     <div class="newideas">
         <div class="activity-idea">
             <label for="newactivity">Activity</label>
-            <input type="text" id="newactivity">
-            <button class="ideabutton">Enter New Idea</button>
+            <input type="text" id="newactivity" [(ngModel)]="activity">
+            <button class="ideabutton" (click)="addActivity()">Enter New Idea</button>
         </div>
         <div class="character-idea">
             <label for="newcharacter">Character</label>
             <input type="text" id="newcharacter">
-            <button class="ideabutton">Enter New Idea</button>
+            <button class="ideabutton" (click)="addCharacter()">Enter New Idea</button>
         </div>
         <div class="setting-idea">
             <label for="newsetting">Setting</label>
             <input type="text" id="newsetting">
-            <button class="ideabutton">Enter New Idea</button>
+            <button class="ideabutton" (click)="addSetting()">Enter New Idea</button>
         </div>
     </div>
 </div>

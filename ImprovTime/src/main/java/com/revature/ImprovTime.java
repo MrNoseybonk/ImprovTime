@@ -18,7 +18,7 @@ public class ImprovTime {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**").allowedMethods("GET", "OPTIONS", "PUT", "POST", "PATCH", "DELETE")
-					.allowedOrigins("*").allowedHeaders("*").allowCredentials(true);
+					.allowedOrigins("http://localhost:4200").allowedHeaders("*").allowCredentials(true);
 			}
 		};
 	}
