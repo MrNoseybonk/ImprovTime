@@ -16,6 +16,9 @@ export class NewideasComponent implements OnInit {
   activity: string;
   character: string;
   setting: string;
+  actMessage: string;
+  charMessage: string;
+  setMessage: string;
 
   constructor(private newideasService: NewideasService) { }
 
@@ -26,20 +29,23 @@ export class NewideasComponent implements OnInit {
     console.log(this.activity);
     this.activitySub = this.newideasService
     .addActivity(this.activity)
-    .subscribe((resp) => {});
+    .subscribe((resp) => { this.actMessage = 'Activity added! Id number ' + resp + '.'; },
+    message => { console.log(message); });
   }
 
   addCharacter(){
     console.log(this.character);
     this.characterSub = this.newideasService
     .addCharacter(this.character)
-    .subscribe((resp) => {});
+    .subscribe((resp) => { this.charMessage = 'Character added! Id number ' + resp + '.'; },
+    message => { console.log(message); });
   }
 
   addSetting(){
     console.log(this.setting);
     this.settingSub = this.newideasService
     .addSetting(this.setting)
-    .subscribe((resp) => {});
+    .subscribe((resp) => { this.setMessage = 'Setting added! Id number ' + resp + '.'; },
+    message => { console.log(message); });
   }
 }
