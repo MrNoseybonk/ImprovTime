@@ -12,8 +12,6 @@ export class NewideasComponent implements OnInit, OnDestroy {
   private characterSub: Subscription;
   private settingSub: Subscription;
 
-  errorDialog = document.getElementById('error-box');
-
   newItem: number;
   activity: string;
   character: string;
@@ -28,14 +26,13 @@ export class NewideasComponent implements OnInit, OnDestroy {
   }
 
   addActivity(){
-    console.log(this.activity);
     this.activitySub = this.newideasService
     .addActivity(this.activity)
     .subscribe((resp) => { this.actMessage = 'Activity added! Id number ' + resp + '.'; },
     message => {
-      if (message.status === 400)
+      if (message.status === 499)
       {
-        alert('That activity already exists.');
+        alert('The activity ' + this.activity + ' already exists.');
       }
       else
       {
@@ -45,14 +42,13 @@ export class NewideasComponent implements OnInit, OnDestroy {
   }
 
   addCharacter(){
-    console.log(this.character);
     this.characterSub = this.newideasService
     .addCharacter(this.character)
     .subscribe((resp) => { this.charMessage = 'Character added! Id number ' + resp + '.'; },
     message => {
-      if (message.status === 400)
+      if (message.status === 499)
       {
-        alert('That character already exists.');
+        alert('The character ' + this.character + ' already exists.');
       }
       else
       {
@@ -62,14 +58,13 @@ export class NewideasComponent implements OnInit, OnDestroy {
   }
 
   addSetting(){
-    console.log(this.setting);
     this.settingSub = this.newideasService
     .addSetting(this.setting)
     .subscribe((resp) => { this.setMessage = 'Setting added! Id number ' + resp + '.'; },
     message => {
-      if (message.status === 400)
+      if (message.status === 499)
       {
-        alert('That setting already exists.');
+        alert('The setting ' + this.setting + ' already exists.');
       }
       else
       {

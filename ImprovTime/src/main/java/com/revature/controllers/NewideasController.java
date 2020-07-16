@@ -33,7 +33,7 @@ public class NewideasController {
 		activity.setActivityId(actServ.addActivity(activity));
 		
 		if(activity.getActivityId() == -1) {
-			return ResponseEntity.badRequest().build();
+			return ResponseEntity.status(499).build();
 		}
 		return ResponseEntity.ok(activity.getActivityId());
 	}
@@ -44,7 +44,7 @@ public class NewideasController {
 		character.setCharacterId(charServ.addCharacter(character));
 		
 		if(character.getCharacterId() == -1) {
-			return ResponseEntity.badRequest().build();
+			return ResponseEntity.status(499).build();
 		}
 		return ResponseEntity.ok(character.getCharacterId());
 	}
@@ -55,7 +55,7 @@ public class NewideasController {
 		setting.setSettingId(setServ.addSetting(setting));
 		
 		if(setting.getSettingId() == -1) {
-			return ResponseEntity.badRequest().build();
+			return ResponseEntity.status(499).build();
 		}
 		return ResponseEntity.ok(setting.getSettingId());
 	}
