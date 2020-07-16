@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ImprovService } from 'src/app/improv.service';
 
@@ -7,7 +7,7 @@ import { ImprovService } from 'src/app/improv.service';
   templateUrl: './improv.component.html',
   styleUrls: ['./improv.component.css']
 })
-export class ImprovComponent implements OnInit {
+export class ImprovComponent implements OnInit, OnDestroy {
   private improvSub: Subscription;
 
   sceneData: any;
@@ -37,5 +37,9 @@ export class ImprovComponent implements OnInit {
           this.characterData.push(character);
         }
     });
+  }
+
+  ngOnDestroy() {
+    this.improvSub.unsubscribe();
   }
 }

@@ -3,6 +3,8 @@ package com.revature.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.revature.beans.Setting;
@@ -20,7 +22,24 @@ public class SettingService {
 	
 	public Integer addSetting(Setting s)
 	{
-		return setDao.save(s).getSettingId();
+		ExampleMatcher modelMatcher = ExampleMatcher.matching()
+				  .withIgnorePaths("id") 
+				  .withMatcher("setting", new ExampleMatcher.MatcherConfigurer<ExampleMatcher.GenericPropertyMatcher>() {
+                    @Override
+                    public void configureMatcher(ExampleMatcher.GenericPropertyMatcher matcher) {
+                        matcher.endsWith();
+                    }
+                });
+
+		Example<Setting> example = Example.of(s, modelMatcher.withIgnoreCase());
+		boolean exists = setDao.exists(example);
+
+		if(exists == false)
+		{
+			return setDao.save(s).getSettingId();
+		}
+		
+		return -1;
 	}
 
 	public Setting[] getSettings()

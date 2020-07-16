@@ -3,6 +3,8 @@ package com.revature.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.revature.beans.ImprovCharacter;
@@ -20,7 +22,24 @@ public class CharacterService {
 	
 	public Integer addCharacter(ImprovCharacter c)
 	{
-		return charDao.save(c).getCharacterId();
+		ExampleMatcher modelMatcher = ExampleMatcher.matching()
+				  .withIgnorePaths("id") 
+				  .withMatcher("character", new ExampleMatcher.MatcherConfigurer<ExampleMatcher.GenericPropertyMatcher>() {
+                    @Override
+                    public void configureMatcher(ExampleMatcher.GenericPropertyMatcher matcher) {
+                        matcher.endsWith();
+                    }
+                });
+
+		Example<ImprovCharacter> example = Example.of(c, modelMatcher.withIgnoreCase());
+		boolean exists = charDao.exists(example);
+		
+		if(exists == false)
+		{
+			return charDao.save(c).getCharacterId();
+		}
+		
+		return -1;
 	}
 	
 	public ImprovCharacter[] getCharacters()

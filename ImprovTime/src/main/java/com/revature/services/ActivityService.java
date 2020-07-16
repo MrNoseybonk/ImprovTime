@@ -5,6 +5,8 @@ import java.util.List;
 
 //import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.revature.beans.Activity;
@@ -22,7 +24,24 @@ public class ActivityService {
     }
 	
 	public Integer addActivity(Activity a) {
-        return actDao.save(a).getActivityId();
+		ExampleMatcher modelMatcher = ExampleMatcher.matching()
+				  .withIgnorePaths("id") 
+				  .withMatcher("activity", new ExampleMatcher.MatcherConfigurer<ExampleMatcher.GenericPropertyMatcher>() {
+                      @Override
+                      public void configureMatcher(ExampleMatcher.GenericPropertyMatcher matcher) {
+                          matcher.endsWith();
+                      }
+                  });
+
+		Example<Activity> example = Example.of(a, modelMatcher.withIgnoreCase());
+		boolean exists = actDao.exists(example);
+
+		if(exists == false)
+		{
+			return actDao.save(a).getActivityId();
+		}
+		
+		return -1;
     }
 	
 	public Activity[] getActivities(){
