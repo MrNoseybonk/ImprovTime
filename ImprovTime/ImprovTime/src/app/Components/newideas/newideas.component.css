@@ -1,0 +1,29 @@
+.ideainput
+{
+    width: 370px;
+}
+
+.activity-idea, .character-idea, .setting-idea
+{
+    margin-bottom: 10px;
+}
+
+#newsetting
+{
+    margin-left: 25px;
+}
+
+#newcharacter
+{
+    margin-left: 6px;
+}
+
+#newactivity
+{
+    margin-left: 24px;
+}
+
+.ideabutton
+{
+    margin-left: 10px;
+}

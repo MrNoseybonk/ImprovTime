@@ -35,7 +35,7 @@ export class NewideasComponent implements OnInit, OnDestroy {
     this.activitySub = this.newideasService
     .addActivity(this.activity)
     .subscribe((resp) => {
-      this.actMessage = 'Activity added! Id number ' + resp + '.';
+      alert('Activity added! Id number ' + resp + '.');
       if (this.actMade === false)
       {
         this.actMade = true;
@@ -51,13 +51,15 @@ export class NewideasComponent implements OnInit, OnDestroy {
         alert('That activity wasn\'t added successfully.');
       }
     });
+
+    this.activity = '';
   }
 
   addCharacter(){
     this.characterSub = this.newideasService
     .addCharacter(this.character)
     .subscribe((resp) => {
-      this.charMessage = 'Character added! Id number ' + resp + '.';
+      alert('Character added! Id number ' + resp + '.')
       if (this.charMade === false)
       {
         this.charMade = true;
@@ -73,13 +75,15 @@ export class NewideasComponent implements OnInit, OnDestroy {
         alert('That character wasn\'t added successfully.');
       }
     });
+
+    this.character = '';
   }
 
   addSetting(){
     this.settingSub = this.newideasService
     .addSetting(this.setting)
     .subscribe((resp) => {
-      this.setMessage = 'Setting added! Id number ' + resp + '.';
+      alert('Setting added! Id number ' + resp + '.')
       if (this.setMade === false)
       {
         this.setMade = true;
@@ -95,6 +99,8 @@ export class NewideasComponent implements OnInit, OnDestroy {
         alert('That setting wasn\'t added successfully.');
       }
      });
+
+     this.setting = '';
   }
 
   ngOnDestroy() {

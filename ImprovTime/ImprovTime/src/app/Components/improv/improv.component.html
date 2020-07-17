@@ -1,13 +1,13 @@
-<div class="improv-body">
-    <div class="improv-title">
+<div class="body">
+    <div class="title">
         <h2>Improv Time!</h2>
     </div>
     <p>Here is where you can create a new Improv scene. Just click the button
         to create a new one.</p>
     <button class="improv-button" (click)="newScene()">Create Improv Scene</button>
     <div class="improv-creation">
-        <p *ngFor="let character of characterData">{{character}}</p>
-        <p>{{activityData}}</p>
-        <p>{{settingData}}</p>
+        <p *ngFor="let character of characterData">Character: {{character}}</p>
+        <p>Activity: {{activityData}}</p>
+        <p>Setting: {{settingData}}</p>
     </div>
 </div>

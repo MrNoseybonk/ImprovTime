@@ -1,0 +1,24 @@
+.mainNav 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.secondBtn, .thirdBtn
+{
+    margin-left: 10px;
+}
+
+.mainNavBG
+{
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    background-color: white;
+    margin-left: -10px;
+    margin-top: -10px;
+    white-space: nowrap;
+    box-shadow: 2px 1px 3px black;
+}
