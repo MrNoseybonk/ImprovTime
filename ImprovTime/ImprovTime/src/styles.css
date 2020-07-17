@@ -15,11 +15,6 @@ body
     box-shadow: 2px 2px 3px 2px black;
 }
 
-.background
-{
-    background-image: url("src\app\Resources\Comedy.jpg");
-}
-
 .title
 {
     text-align: center;
