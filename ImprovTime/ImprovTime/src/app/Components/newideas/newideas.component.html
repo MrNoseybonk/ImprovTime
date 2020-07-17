@@ -1,13 +1,15 @@
-<div class="ideas-body">
-    <div class="ideas-title">
+<div class="body">
+    <div class="title">
         <h2>New Ideas!</h2>
     </div>
-    <p>Here you can enter new activities, settings, and characters to be used
-        in Improv scenes.</p>
+    <div class="intro">
+        <p>Here you can enter new activities, settings, and characters to be used
+            in Improv scenes.</p>
+    </div>
     <div class="newideas">
         <div class="activity-idea">
             <label for="newactivity">Activity</label>
-            <input type="text" id="newactivity" [(ngModel)]="activity" maxlength="40">
+            <input type="text" id="newactivity" [(ngModel)]="activity" class="ideainput" maxlength="40">
             <button class="ideabutton" (click)="addActivity()">Enter New Idea</button>
             <small *ngIf=actMessage class="text-notice">
                 <span> {{actMessage}}</span>
@@ -15,7 +17,7 @@
         </div>
         <div class="character-idea">
             <label for="newcharacter">Character</label>
-            <input type="text" id="newcharacter" [(ngModel)]="character" maxlength="25">
+            <input type="text" id="newcharacter" [(ngModel)]="character" class="ideainput" maxlength="25">
             <button class="ideabutton" (click)="addCharacter()">Enter New Idea</button>
             <small *ngIf=charMessage class="text-notice">
                 <span> {{charMessage}}</span>
@@ -23,11 +25,12 @@
         </div>
         <div class="setting-idea">
             <label for="newsetting">Setting</label>
-            <input type="text" id="newsetting" [(ngModel)]="setting" maxlength="40">
+            <input type="text" id="newsetting" [(ngModel)]="setting" class="ideainput" maxlength="40">
             <button class="ideabutton" (click)="addSetting()">Enter New Idea</button>
             <small *ngIf=setMessage class="text-notice">
                 <span> {{setMessage}}</span>
             </small>
         </div>
+        <img src="https://i.ibb.co/PYh9CZb/idea.jpg" alt="idea">
     </div>
 </div>

@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+body
+{
+    font-family: ‘Prompt’, sans-serif;
+    background-image: url("src\app\Resources\Comedy.jpg");
+}
+
+.body
+{
+    margin: 5% 30%;
+    width: 740px;
+    height: 445px;
+    font-weight: bolder;
+    background-color: 	#ade0f3;
+    box-shadow: 2px 2px 3px 2px black;
+}
+
+.title
+{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.intro
+{
+    text-align: center;
+}
